@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Harmonies en Fête 2025 - Saint-Lys</title>
     <style>
         /* Reset et styles de base */
@@ -13,15 +13,17 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.5;
             color: #2c5aa0;
             background: linear-gradient(135deg, #ff6b9d 0%, #ffa726 25%, #ffeb3b 50%, #4fc3f7 75%, #ab47bc 100%);
             min-height: 100vh;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Effet aquarelle en arrière-plan */
+        /* Effet aquarelle en arrière-plan - Simplifié pour mobile */
         body::before {
             content: '';
             position: fixed;
@@ -30,160 +32,144 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 107, 157, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 80% 30%, rgba(255, 167, 38, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 40% 70%, rgba(255, 235, 59, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(79, 195, 247, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 10% 90%, rgba(171, 71, 188, 0.6) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(255, 107, 157, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(255, 167, 38, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 40% 70%, rgba(255, 235, 59, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(79, 195, 247, 0.4) 0%, transparent 40%);
             pointer-events: none;
             z-index: -1;
-            animation: aquarelle 20s ease-in-out infinite;
         }
 
-        @keyframes aquarelle {
-            0%, 100% { 
-                filter: blur(3px);
-                transform: scale(1);
-            }
-            50% { 
-                filter: blur(5px);
-                transform: scale(1.1);
-            }
-        }
-
-        /* Navigation sticky */
+        /* Navigation mobile optimisée */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(44, 90, 160, 0.15);
-            border-bottom: 3px solid #4fc3f7;
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 15px rgba(44, 90, 160, 0.15);
+            border-bottom: 2px solid #4fc3f7;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2rem;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            gap: 0.5rem;
+            padding: 0 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        nav ul::-webkit-scrollbar {
+            display: none;
         }
 
         nav a {
             text-decoration: none;
             color: #1a365d;
             font-weight: 700;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
+            padding: 0.6rem 1rem;
+            border-radius: 20px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            min-width: fit-content;
+            text-align: center;
         }
 
-        nav a:hover {
+        nav a:hover, nav a:active {
             background: linear-gradient(135deg, #2c5aa0, #4fc3f7);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.4);
-            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
         }
 
         /* Container principal */
         .container {
-            max-width: 1200px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
         /* Section générique */
         section {
-            padding: 4rem 0;
-            margin-top: 4rem;
+            padding: 2rem 0;
+            margin-top: 2rem;
         }
 
-        /* Header principal - Style affiche */
+        /* Header principal - Optimisé mobile */
         .hero {
             background: 
-                radial-gradient(circle at 25% 25%, rgba(255, 107, 157, 0.8) 0%, transparent 50%),
-                radial-gradient(circle at 75% 25%, rgba(255, 167, 38, 0.8) 0%, transparent 50%),
-                radial-gradient(circle at 50% 75%, rgba(255, 235, 59, 0.8) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(79, 195, 247, 0.8) 0%, transparent 50%),
-                linear-gradient(135deg, rgba(255, 107, 157, 0.9), rgba(255, 167, 38, 0.9));
+                radial-gradient(circle at 25% 25%, rgba(255, 107, 157, 0.7) 0%, transparent 40%),
+                radial-gradient(circle at 75% 25%, rgba(255, 167, 38, 0.7) 0%, transparent 40%),
+                radial-gradient(circle at 50% 75%, rgba(255, 235, 59, 0.7) 0%, transparent 40%),
+                linear-gradient(135deg, rgba(255, 107, 157, 0.8), rgba(255, 167, 38, 0.8));
             color: #2c5aa0;
             text-align: center;
-            padding: 8rem 0 6rem;
+            padding: 5rem 0 3rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="3" fill="%23ff6b9d" opacity="0.6"/><circle cx="75" cy="35" r="4" fill="%23ffa726" opacity="0.7"/><circle cx="45" cy="65" r="2" fill="%23ffeb3b" opacity="0.8"/><circle cx="85" cy="75" r="3" fill="%234fc3f7" opacity="0.6"/></svg>');
-            animation: float 15s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(5deg); }
+            margin-top: 60px;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.3);
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
             animation: slideInUp 1s ease-out;
             font-weight: 900;
             background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 50%, #4fc3f7 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            color: #1a365d; /* Fallback pour les navigateurs non compatibles */
+            color: #1a365d;
+            line-height: 1.2;
         }
 
         .hero-subtitle {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             background: linear-gradient(135deg, #2c5aa0 0%, #4fc3f7 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            color: #2c5aa0; /* Fallback */
+            color: #2c5aa0;
             font-weight: 700;
             animation: slideInUp 1s ease-out 0.2s both;
         }
 
         .hero-info {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin: 2rem auto;
-            max-width: 700px;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 90%;
             animation: slideInUp 1s ease-out 0.4s both;
-            box-shadow: 0 15px 35px rgba(44, 90, 160, 0.2);
-            border: 3px solid rgba(255, 107, 157, 0.3);
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.2);
+            border: 2px solid rgba(255, 107, 157, 0.3);
         }
 
         .hero-info h2 {
             color: #1a365d;
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
         }
 
         .hero-info p {
             color: #2c5aa0;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin: 0.5rem 0;
+            margin: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         @keyframes slideInUp {
@@ -191,46 +177,48 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sections avec background blanc */
+        /* Sections avec background blanc - Mobile optimisé */
         .white-section {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-radius: 25px;
-            margin: 2rem 0;
-            box-shadow: 0 15px 50px rgba(44, 90, 160, 0.15);
-            padding: 3.5rem;
+            border-radius: 20px;
+            margin: 1rem 0;
+            box-shadow: 0 10px 30px rgba(44, 90, 160, 0.15);
+            padding: 2rem 1rem;
             border: 2px solid rgba(255, 107, 157, 0.2);
         }
 
         .section-title {
-            font-size: 3rem;
+            font-size: 2rem;
             background: linear-gradient(135deg, #1a365d 0%, #2c5aa0 50%, #4fc3f7 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            color: #1a365d; /* Fallback */
+            color: #1a365d;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             position: relative;
             font-weight: 800;
+            line-height: 1.2;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 6px;
+            width: 80px;
+            height: 4px;
             background: linear-gradient(135deg, #1a365d, #2c5aa0, #4fc3f7);
-            border-radius: 3px;
+            border-radius: 2px;
         }
 
-        /* Programme */
+        /* Programme - Mobile friendly */
         .program-grid {
-            display: grid;
-            gap: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
         .time-slot {
@@ -238,148 +226,126 @@
                 rgba(255, 235, 59, 0.1) 0%, 
                 rgba(79, 195, 247, 0.1) 50%, 
                 rgba(255, 107, 157, 0.1) 100%);
-            border-radius: 20px;
-            padding: 2.5rem;
-            border-left: 8px solid #ff6b9d;
-            border-right: 8px solid #4fc3f7;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 6px solid #ff6b9d;
+            border-right: 6px solid #4fc3f7;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .time-slot::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(255, 107, 157, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(79, 195, 247, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .time-slot:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.25);
+        .time-slot:active {
+            transform: scale(0.98);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.25);
         }
 
         .time-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
             position: relative;
             z-index: 2;
         }
 
         .time {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 900;
             color: #1a365d;
             background: linear-gradient(135deg, #ffeb3b, #ffa726);
-            padding: 0.5rem 1.2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(255, 167, 38, 0.3);
+            padding: 0.4rem 1rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(255, 167, 38, 0.3);
+            align-self: flex-start;
         }
 
         .orchestra-name {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: #2c5aa0;
             font-weight: 700;
             background: rgba(255, 255, 255, 0.9);
-            padding: 0.5rem 1rem;
-            border-radius: 12px;
+            padding: 0.5rem 0.8rem;
+            border-radius: 10px;
             border: 2px solid rgba(79, 195, 247, 0.5);
+            align-self: flex-start;
+            line-height: 1.3;
         }
 
         .pieces {
-            display: grid;
-            gap: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
             position: relative;
             z-index: 2;
         }
 
         .piece {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding: 0.8rem;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(44, 90, 160, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(44, 90, 160, 0.1);
             border: 1px solid rgba(255, 107, 157, 0.2);
             transition: all 0.3s ease;
         }
 
-        .piece:hover {
-            transform: translateX(10px);
+        .piece:active {
+            transform: translateX(5px);
             border-color: #ff6b9d;
-            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.2);
-        }
-
-        .piece-info {
-            flex: 1;
+            box-shadow: 0 3px 15px rgba(255, 107, 157, 0.2);
         }
 
         .piece-title {
             font-weight: 700;
             color: #1a365d;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.3;
         }
 
         .piece-details {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: #2c5aa0;
-            margin-top: 0.2rem;
+            line-height: 1.2;
         }
 
-        .duration {
-            color: #ff6b9d;
-            font-weight: 700;
-            font-size: 1rem;
-            background: rgba(255, 107, 157, 0.1);
-            padding: 0.3rem 0.8rem;
-            border-radius: 8px;
-        }
-
-        /* Grid des orchestres */
+        /* Grid des orchestres - Mobile stack */
         .orchestras-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .orchestra-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 15px 40px rgba(44, 90, 160, 0.15);
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 3px solid transparent;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.98)), 
                              linear-gradient(135deg, #1a365d, #2c5aa0, #4fc3f7);
             background-origin: border-box;
             background-clip: content-box, border-box;
         }
 
-        .orchestra-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(79, 195, 247, 0.25);
+        .orchestra-card:active {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(79, 195, 247, 0.25);
         }
 
         .orchestra-image {
             width: 100%;
-            height: 280px;
+            height: 200px;
             background: linear-gradient(135deg, #ff6b9d 0%, #ffa726 25%, #ffeb3b 50%, #4fc3f7 75%, #ab47bc 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 600;
             position: relative;
             overflow: hidden;
@@ -395,56 +361,59 @@
 
         .orchestra-image::before {
             content: '🎵 🎺 🎷 🥁';
-            font-size: 3rem;
+            font-size: 2rem;
             opacity: 0.3;
             position: absolute;
-            animation: float 10s ease-in-out infinite;
             z-index: 1;
         }
 
-        /* Masquer l'icône quand il y a une image */
         .orchestra-image:has(img)::before {
             display: none;
         }
 
         .orchestra-content {
-            padding: 2.5rem;
+            padding: 1.5rem;
         }
 
         .orchestra-title {
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             background: linear-gradient(135deg, #1a365d, #2c5aa0);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            color: #1a365d; /* Fallback */
-            margin-bottom: 1.2rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
             font-weight: 800;
+            line-height: 1.3;
         }
 
         .orchestra-description {
             color: #2c5aa0;
-            line-height: 1.7;
-            font-size: 1.05rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
-        /* Informations pratiques */
+        /* Informations pratiques - Grid mobile optimisé */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .info-card {
             background: linear-gradient(135deg, #ff6b9d, #ffa726);
             color: white;
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .info-card::before {
@@ -455,8 +424,7 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 70%, rgba(255, 235, 59, 0.3) 0%, transparent 50%);
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
             pointer-events: none;
         }
 
@@ -469,52 +437,55 @@
             color: #1a365d;
         }
 
-        .info-card:hover {
-            transform: scale(1.08) rotate(2deg);
-            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.3);
+        .info-card:active {
+            transform: scale(0.95);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
         }
 
         .info-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
             position: relative;
             z-index: 2;
         }
 
         .info-title {
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             position: relative;
             z-index: 2;
+            line-height: 1.2;
         }
 
         .info-card p {
             position: relative;
             z-index: 2;
             font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.3;
         }
 
-        /* Boutons */
+        /* Boutons - Mobile friendly */
         .btn {
             display: inline-block;
-            padding: 1.2rem 2.5rem;
+            padding: 1rem 2rem;
             background: linear-gradient(135deg, #2c5aa0, #4fc3f7);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.3);
+            box-shadow: 0 5px 20px rgba(44, 90, 160, 0.3);
+            touch-action: manipulation;
         }
 
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(79, 195, 247, 0.5);
-            background: linear-gradient(135deg, #1a365d, #2c5aa0);
+        .btn:active {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(79, 195, 247, 0.5);
         }
 
         /* Footer */
@@ -522,72 +493,72 @@
             background: linear-gradient(135deg, #1a365d, #2c5aa0);
             color: white;
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
             position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(79, 195, 247, 0.1) 0%, transparent 50%);
         }
 
         footer p {
             position: relative;
             z-index: 2;
             font-weight: 600;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin: 0.3rem 0;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
+        /* Styles spéciaux pour le grand finale */
+        .grand-finale {
+            border: 3px solid #4fc3f7 !important;
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(26, 54, 93, 0.1)) !important;
+        }
 
-            .hero-subtitle {
-                font-size: 1.4rem;
-            }
+        .grand-finale .time {
+            background: linear-gradient(135deg, #4fc3f7, #1a365d) !important;
+            color: white !important;
+        }
 
-            .hero-info {
-                padding: 2rem;
-            }
+        .grand-finale .orchestra-name {
+            background: linear-gradient(135deg, #1a365d, #4fc3f7) !important;
+            color: white !important;
+            font-size: 1rem !important;
+            text-align: center;
+            padding: 0.8rem !important;
+        }
 
-            nav ul {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
+        .grand-finale-note {
+            text-align: center;
+            margin: 1rem 0;
+            font-weight: 700;
+            color: #1a365d;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 2px solid #4fc3f7;
+        }
 
-            .time-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 1rem;
-            }
+        .grand-finale .piece {
+            border: 2px solid #4fc3f7 !important;
+        }
 
-            .orchestras-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .white-section {
-                padding: 2.5rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
+        .participants-note {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #2c5aa0;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.8rem;
+            border-radius: 8px;
         }
 
         /* Animation d'entrée pour les cartes */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
         .fade-in.visible {
@@ -603,16 +574,94 @@
             -webkit-text-fill-color: transparent;
             font-weight: 900;
         }
+
+        /* Optimisations tactiles */
+        .time-slot, .orchestra-card, .info-card, .piece {
+            -webkit-tap-highlight-color: rgba(79, 195, 247, 0.3);
+        }
+
+        /* Amélioration de la lisibilité sur petit écran */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .time {
+                font-size: 1.2rem;
+            }
+            
+            .orchestra-name {
+                font-size: 1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .hero-info {
+                padding: 1.2rem;
+            }
+            
+            .white-section {
+                padding: 1.5rem 0.8rem;
+                margin: 0.8rem 0;
+            }
+            
+            nav ul {
+                padding: 0 0.5rem;
+            }
+            
+            nav a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Masquer les éléments non essentiels sur très petit écran */
+        @media (max-width: 360px) {
+            .hero::before {
+                display: none;
+            }
+            
+            .time-slot::before {
+                display: none;
+            }
+            
+            .info-card::before {
+                opacity: 0.1;
+            }
+        }
+
+        /* Programme en attente */
+        .program-pending {
+            text-align: center;
+            padding: 2rem;
+            color: #2c5aa0;
+            font-style: italic;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: 2px dashed #4fc3f7;
+            font-size: 0.95rem;
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#programme">Programme</a></li>
-            <li><a href="#orchestres">Orchestres</a></li>
-            <li><a href="#infos">Infos Pratiques</a></li>
+            <li><a href="#accueil">🏠 Accueil</a></li>
+            <li><a href="#programme">📅 Programme</a></li>
+            <li><a href="#orchestres">🎼 Orchestres</a></li>
+            <li><a href="#infos">ℹ️ Infos</a></li>
         </ul>
     </nav>
 
@@ -626,15 +675,14 @@
                 <p>🏟️ Boulodrome de Saint-Lys</p>
                 <p>🎫 Concerts Gratuits</p>
                 <p>🎼 7 formations, 300 musiciens</p>
-                <p>🍽️ Buvette et restauration sucrée sur place</p>
+                <p>🍽️ Buvette et restauration sucrée</p>
             </div>
-          
         </div>
     </section>
 
     <!-- Programme -->
     <section id="programme" class="container">
-        <div class="white-section ">
+        <div class="white-section">
             <h2 class="section-title">Programme de la Journée</h2>
             <div class="program-grid">
                 
@@ -645,32 +693,20 @@
                     </div>
                     <div class="pieces">
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Puszta</div>
-                                <div class="piece-details">Jan Van Der Roost - Variété</div>
-                            </div>
-                          
+                            <div class="piece-title">Puszta</div>
+                            <div class="piece-details">Jan Van Der Roost - Variété</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">The Fly</div>
-                                <div class="piece-details">Oscar Navarro - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">The Fly</div>
+                            <div class="piece-details">Oscar Navarro - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Super Mario Bros</div>
-                                <div class="piece-details">Takashi Hoshide - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">Super Mario Bros</div>
+                            <div class="piece-details">Takashi Hoshide - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">It's a groovy world</div>
-                                <div class="piece-details">Suzanne Welter - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">It's a groovy world</div>
+                            <div class="piece-details">Suzanne Welter - Fantaisie</div>
                         </div>
                     </div>
                 </div>
@@ -680,7 +716,7 @@
                         <span class="time">14h35</span>
                         <span class="orchestra-name">Harmonie Municipale de Blagnac</span>
                     </div>
-                    <div class="pieces" style="text-align: center; padding: 2rem; color: #2c5aa0; font-style: italic;">
+                    <div class="program-pending">
                         Programme en cours de finalisation...
                     </div>
                 </div>
@@ -692,46 +728,28 @@
                     </div>
                     <div class="pieces">
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Emerald awakening</div>
-                                <div class="piece-details">Michael Sweeney - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">Emerald awakening</div>
+                            <div class="piece-details">Michael Sweeney - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Boogie Wonderland</div>
-                                <div class="piece-details">John Lind / Allee Willis, arr. Tim Waters - Variété</div>
-                            </div>
-                           
+                            <div class="piece-title">Boogie Wonderland</div>
+                            <div class="piece-details">John Lind / Allee Willis, arr. Tim Waters - Variété</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Halleluja</div>
-                                <div class="piece-details">Leonard Cohen, arr. Michael Brown - Contemporain</div>
-                            </div>
-                           
+                            <div class="piece-title">Halleluja</div>
+                            <div class="piece-details">Leonard Cohen, arr. Michael Brown - Contemporain</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Libertango</div>
-                                <div class="piece-details">Astor Piazzolla, arr. Jerome Naulais - Variété</div>
-                            </div>
-                           
+                            <div class="piece-title">Libertango</div>
+                            <div class="piece-details">Astor Piazzolla, arr. Jerome Naulais - Variété</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Glenn Miller in Concert</div>
-                                <div class="piece-details">Glenn Miller, arr. Paul Murtha - Jazz</div>
-                            </div>
-                           
+                            <div class="piece-title">Glenn Miller in Concert</div>
+                            <div class="piece-details">Glenn Miller, arr. Paul Murtha - Jazz</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Quadrille de la vie Parisienne</div>
-                                <div class="piece-details">Jacques Offenbach, arr. Christian Guillonnau - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">Quadrille de la vie Parisienne</div>
+                            <div class="piece-details">Jacques Offenbach, arr. Christian Guillonnau - Fantaisie</div>
                         </div>
                     </div>
                 </div>
@@ -743,82 +761,48 @@
                     </div>
                     <div class="pieces">
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">The Hey Song</div>
-                                <div class="piece-details">Glitter / Leander, arr. Paul Lavender</div>
-                            </div>
-                           
+                            <div class="piece-title">The Hey Song</div>
+                            <div class="piece-details">Glitter / Leander, arr. Paul Lavender</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Rock Solid</div>
-                                <div class="piece-details">Scot Watson</div>
-                            </div>
-                          
-                        </div>
-                       
-                        <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Sur ma Route</div>
-                                <div class="piece-details">Black M</div>
-                            </div>
-                          
+                            <div class="piece-title">Rock Solid</div>
+                            <div class="piece-details">Scot Watson</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Guk Euskaraz</div>
-                                <div class="piece-details">Urko</div>
-                            </div>
-                          
+                            <div class="piece-title">Sur ma Route</div>
+                            <div class="piece-details">Black M</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Wake Me Up</div>
-                                <div class="piece-details">Avicii</div>
-                            </div>
-                           
+                            <div class="piece-title">Guk Euskaraz</div>
+                            <div class="piece-details">Urko</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Louie Louie</div>
-                                <div class="piece-details">Richard Berry, arr. Paul Lavender</div>
-                            </div>
-                          
+                            <div class="piece-title">Wake Me Up</div>
+                            <div class="piece-details">Avicii</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">AC/DC</div>
-                                <div class="piece-details">AC/DC, arr. Johan Lava</div>
-                            </div>
-                          
+                            <div class="piece-title">Louie Louie</div>
+                            <div class="piece-details">Richard Berry, arr. Paul Lavender</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Medley Disco</div>
-                                <div class="piece-details">arr. Johan Lava</div>
-                            </div>
-                          
+                            <div class="piece-title">AC/DC</div>
+                            <div class="piece-details">AC/DC, arr. Johan Lava</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Sofia</div>
-                                <div class="piece-details">Alvaro Soler, arr. Lorenzo Bocci</div>
-                            </div>
-                          
+                            <div class="piece-title">Medley Disco</div>
+                            <div class="piece-details">arr. Johan Lava</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Thrift Shop/Crazy in Love</div>
-                                <div class="piece-details">Ryan Lewis / Beyoncé, arr. Johan Lava</div>
-                            </div>
-                          
+                            <div class="piece-title">Sofia</div>
+                            <div class="piece-details">Alvaro Soler, arr. Lorenzo Bocci</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Les Yeux d'Emilie</div>
-                                <div class="piece-details">Joe Dassin</div>
-                            </div>
-                          
+                            <div class="piece-title">Thrift Shop/Crazy in Love</div>
+                            <div class="piece-details">Ryan Lewis / Beyoncé, arr. Johan Lava</div>
+                        </div>
+                        <div class="piece">
+                            <div class="piece-title">Les Yeux d'Emilie</div>
+                            <div class="piece-details">Joe Dassin</div>
                         </div>
                     </div>
                 </div>
@@ -830,32 +814,20 @@
                     </div>
                     <div class="pieces">
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">The Armed Man</div>
-                                <div class="piece-details">Karl Jenkins - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">The Armed Man</div>
+                            <div class="piece-details">Karl Jenkins - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Selection from The Greatest Showman</div>
-                                <div class="piece-details">arr. Paul Murtha - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">Selection from The Greatest Showman</div>
+                            <div class="piece-details">arr. Paul Murtha - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Stromae</div>
-                                <div class="piece-details">arr. Leonard Chevalier - Variété</div>
-                            </div>
-                          
+                            <div class="piece-title">Stromae</div>
+                            <div class="piece-details">arr. Leonard Chevalier - Variété</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">L'Envie</div>
-                                <div class="piece-details">Johnny Hallyday, arr. Stephane Fougeroux - Variété</div>
-                            </div>
-                          
+                            <div class="piece-title">L'Envie</div>
+                            <div class="piece-details">Johnny Hallyday, arr. Stephane Fougeroux - Variété</div>
                         </div>
                     </div>
                 </div>
@@ -865,7 +837,7 @@
                         <span class="time">16h30</span>
                         <span class="orchestra-name">Le Coq Lavelanetien</span>
                     </div>
-                    <div class="pieces" style="text-align: center; padding: 2rem; color: #2c5aa0; font-style: italic;">
+                    <div class="program-pending">
                         Programme en cours de finalisation...
                     </div>
                 </div>
@@ -877,68 +849,47 @@
                     </div>
                     <div class="pieces">
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Florentiner March</div>
-                                <div class="piece-details">Julius Fucick, arr. José Palomera - Fantaisie</div>
-                            </div>
-                           
+                            <div class="piece-title">Florentiner March</div>
+                            <div class="piece-details">Julius Fucick, arr. José Palomera - Fantaisie</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Jitterbug</div>
-                                <div class="piece-details">Robert Buckley - Jazz</div>
-                            </div>
-                           
+                            <div class="piece-title">Jitterbug</div>
+                            <div class="piece-details">Robert Buckley - Jazz</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Disney Film Favorites</div>
-                                <div class="piece-details">arr. Johnnie Vinson - Musique de film</div>
-                            </div>
-                          
+                            <div class="piece-title">Disney Film Favorites</div>
+                            <div class="piece-details">arr. Johnnie Vinson - Musique de film</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">One Moment in Time</div>
-                                <div class="piece-details">Albert Hammond / John Bettis, arr. Manfred Schneider - Variété</div>
-                            </div>
-                           
+                            <div class="piece-title">One Moment in Time</div>
+                            <div class="piece-details">Albert Hammond / John Bettis, arr. Manfred Schneider - Variété</div>
                         </div>
                         <div class="piece">
-                            <div class="piece-info">
-                                <div class="piece-title">Moment for Morricone</div>
-                                <div class="piece-details">Morricone, arr. de Mey - Musique de film</div>
-                            </div>
-                           
+                            <div class="piece-title">Moment for Morricone</div>
+                            <div class="piece-details">Morricone, arr. de Mey - Musique de film</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="time-slot" style="border: 4px solid #4fc3f7; background: linear-gradient(135deg, rgba(79, 195, 247, 0.2), rgba(26, 54, 93, 0.1));">
+                <div class="time-slot grand-finale">
                     <div class="time-header">
-                        <span class="time" style="background: linear-gradient(135deg, #4fc3f7, #1a365d); color: white;">17h30</span>
-                        <span class="orchestra-name" style="background: linear-gradient(135deg, #1a365d, #4fc3f7); color: white; font-size: 1.2rem;">🎼 GRAND FINALE - TOUS LES ORCHESTRES RÉUNIS 🎼</span>
+                        <span class="time">17h30</span>
+                        <span class="orchestra-name">🎼 GRAND FINALE - TOUS LES ORCHESTRES RÉUNIS 🎼</span>
                     </div>
-                    <div style="text-align: center; margin: 1rem 0; font-weight: 700; color: #1a365d; font-size: 1.1rem;">
+                    <div class="grand-finale-note">
                         ✨ 300 musiciens sur scène - Morceaux d'ensemble ✨
                     </div>
                     <div class="pieces">
-                        <div class="piece" style="border: 2px solid #4fc3f7;">
-                            <div class="piece-info">
-                                <div class="piece-title">Cornfield Rock</div>
-                                <div class="piece-details">Jacob de Haan - Fantaisie</div>
-                            </div>
-                           
+                        <div class="piece">
+                            <div class="piece-title">Cornfield Rock</div>
+                            <div class="piece-details">Jacob de Haan - Fantaisie</div>
                         </div>
-                        <div class="piece" style="border: 2px solid #4fc3f7;">
-                            <div class="piece-info">
-                                <div class="piece-title">Sweet Caroline</div>
-                                <div class="piece-details">Neil Diamond, arr. Tim Waters - Variété</div>
-                            </div>
-                        
+                        <div class="piece">
+                            <div class="piece-title">Sweet Caroline</div>
+                            <div class="piece-details">Neil Diamond, arr. Tim Waters - Variété</div>
                         </div>
                     </div>
-                    <div style="text-align: center; margin-top: 1.5rem; font-style: italic; color: #2c5aa0;">
+                    <div class="participants-note">
                         Avec la participation de : Le Vernet • Le Coq Lavelanetien • Entente Saint Lysienne • Union Musicale Auterivaine • Harmonie Municipale de Blagnac • Orchestre d'Harmonie du Frontonnais • La Gerbe d'Or
                     </div>
                 </div>
@@ -1084,7 +1035,7 @@
                     <p>Site accessible<br>aux personnes à mobilité réduite</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 3rem;">
+            <div style="text-align: center; margin-top: 2rem;">
                 <a href="https://maps.app.goo.gl/d1WgJiDugBYD1BNn6" target="_blank" class="btn">
                     📍 Voir sur Google Maps
                 </a>
@@ -1101,7 +1052,7 @@
     </footer>
 
     <script>
-        // Navigation smooth scroll - Version corrigée
+        // Navigation smooth scroll - Version mobile optimisée
         document.addEventListener('DOMContentLoaded', function() {
             // Pour tous les liens qui commencent par #
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1114,7 +1065,7 @@
                     if (targetSection) {
                         // Calculer la position en tenant compte de la navbar fixe
                         const navHeight = document.querySelector('nav').offsetHeight;
-                        const targetPosition = targetSection.offsetTop - navHeight - 20;
+                        const targetPosition = targetSection.offsetTop - navHeight - 10;
                         
                         window.scrollTo({
                             top: targetPosition,
@@ -1123,12 +1074,25 @@
                     }
                 });
             });
+
+            // Amélioration du feedback tactile
+            document.querySelectorAll('.time-slot, .orchestra-card, .info-card, .piece').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
         });
 
-        // Animation au scroll
+        // Animation au scroll - Version allégée pour mobile
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: '0px 0px -30px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -1154,10 +1118,20 @@
 
             // Observer les créneaux horaires
             document.querySelectorAll('.time-slot').forEach((slot, index) => {
-                slot.style.animationDelay = `${index * 0.1}s`;
+                slot.style.animationDelay = `${index * 0.05}s`;
                 observer.observe(slot);
             });
         });
+
+        // Prévenir le zoom sur double-tap pour iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>
