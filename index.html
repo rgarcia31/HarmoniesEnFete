@@ -48,7 +48,7 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            padding: 0.8rem 0;
+            padding: 1rem 0;
             box-shadow: 0 2px 15px rgba(44, 90, 160, 0.15);
             border-bottom: 2px solid #4fc3f7;
         }
@@ -73,21 +73,44 @@
             text-decoration: none;
             color: #1a365d;
             font-weight: 700;
-            padding: 0.6rem 1rem;
-            border-radius: 20px;
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
             font-size: 0.9rem;
             white-space: nowrap;
             min-width: fit-content;
             text-align: center;
+            display: block;
+            position: relative;
+            background-clip: padding-box;
         }
 
         nav a:hover, nav a:active {
             background: linear-gradient(135deg, #2c5aa0, #4fc3f7);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Amélioration spécifique pour éviter la coupure */
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 30px;
+            background: transparent;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover::before {
+            background: linear-gradient(135deg, #2c5aa0, #4fc3f7);
+            box-shadow: 0 8px 20px rgba(79, 195, 247, 0.4);
         }
 
         /* Container principal */
@@ -582,6 +605,21 @@
 
         /* Amélioration de la lisibilité sur petit écran */
         @media (max-width: 480px) {
+            nav {
+                padding: 0.8rem 0;
+            }
+            
+            nav a {
+                padding: 0.7rem 1rem;
+                font-size: 0.85rem;
+                border-radius: 20px;
+            }
+            
+            nav a:hover, nav a:active {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 15px rgba(79, 195, 247, 0.4);
+            }
+            
             .hero h1 {
                 font-size: 1.8rem;
             }
@@ -614,15 +652,6 @@
             .white-section {
                 padding: 1.5rem 0.8rem;
                 margin: 0.8rem 0;
-            }
-            
-            nav ul {
-                padding: 0 0.5rem;
-            }
-            
-            nav a {
-                padding: 0.5rem 0.8rem;
-                font-size: 0.8rem;
             }
         }
 
