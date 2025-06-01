@@ -630,7 +630,38 @@
             -webkit-tap-highlight-color: rgba(79, 195, 247, 0.3);
         }
 
-        /* Bouton retour en haut */
+        /* Bouton lien externe pour les orchestres */
+        .orchestra-link {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #4fc3f7, #2c5aa0);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .orchestra-link:hover, .orchestra-link:active {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.5);
+            background: linear-gradient(135deg, #2c5aa0, #1a365d);
+        }
+
+        .orchestra-link::before {
+            content: "🌐 ";
+            margin-right: 0.5rem;
+        }
+
+        .orchestra-link.facebook::before {
+            content: "📘 ";
+        }
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -1015,6 +1046,9 @@
                         <p class="orchestra-description">
                             Sous la direction d'Elian BRUNATO, Patrick BRUNATO, Guy CANAL et Laurent EYCHENNE, ces musiciens déploient leur talent pour offrir un voyage enchanteur à travers les cultures du monde. Des notes qui se mêlent dans une ambiance tour à tour tzigane, latine, hispanique, jazz, classique ou festive.
                         </p>
+                        <a href="https://www.facebook.com/p/Union-Musicale-Auterivaine-100063593592977/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="orchestra-link facebook">
+                            Découvrir sur Facebook
+                        </a>
                     </div>
                 </div>
 
@@ -1028,6 +1062,9 @@
                         <p class="orchestra-description">
                             Formation associative de 40 musiciens pratiquant des instruments à vent et percussion. Son répertoire varié lui permet de proposer des prestations attractives et adaptables à chaque événement, faisant d'elle un partenaire musical incontournable de la région.
                         </p>
+                        <a href="https://www.facebook.com/MMB31700/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="orchestra-link facebook">
+                            Découvrir sur Facebook
+                        </a>
                     </div>
                 </div>
 
@@ -1041,6 +1078,9 @@
                         <p class="orchestra-description">
                             La plus vieille formation musicale de Haute-Garonne fête ses 150 ans cette année ! Regroupant une quarantaine de musiciens passionnés, elle offre un répertoire varié sous la direction de Bernard GAUTHERIN depuis plus de 30 ans. Un acteur culturel majeur du Frontonnais tourné vers la création et l'innovation musicale.
                         </p>
+                        <a href="https://www.ohf31.fr/" target="_blank" rel="noopener noreferrer" class="orchestra-link">
+                            Visiter le site web
+                        </a>
                     </div>
                 </div>
 
@@ -1054,6 +1094,9 @@
                         <p class="orchestra-description">
                             Fondée en 1934, la Gerbe d'Or vient de fêter ses 90 printemps. Sous la présidence de Patrice Rouzeau depuis 1991 et la direction musicale de Johan LAVA, cette formation unique préserve l'authenticité du style "Majorette" avec la cohésion entre musique et majorettes pour offrir un spectacle de qualité exceptionnel.
                         </p>
+                        <a href="https://www.lagerbedor.eu/WP/" target="_blank" rel="noopener noreferrer" class="orchestra-link">
+                            Visiter le site web
+                        </a>
                     </div>
                 </div>
 
@@ -1067,6 +1110,9 @@
                         <p class="orchestra-description">
                             Depuis plus de 35 ans, les villages du Vernet et de Venerque vibraient au rythme de leur propre Orchestre d'Harmonie. Née le 2 septembre 2016, l'association réunit aujourd'hui une cinquantaine de musiciens amateurs et passionnés qui se retrouvent sous la baguette de Cyril Devaux dans une ambiance très chaleureuse.
                         </p>
+                        <a href="https://www.facebook.com/orchestre.harmonie.venerque.le.vernet/?locale=fr_FR" target="_blank" rel="noopener noreferrer" class="orchestra-link facebook">
+                            Découvrir sur Facebook
+                        </a>
                     </div>
                 </div>
 
@@ -1080,6 +1126,9 @@
                         <p class="orchestra-description">
                             [Texte de présentation à compléter - Formation musicale de la région de Lavelanet, reconnue pour son dynamisme et sa passion pour la musique d'harmonie. Cette formation apporte sa contribution unique au festival avec un répertoire varié alliant tradition et modernité.]
                         </p>
+                        <a href="https://www.facebook.com/p/Batterie-Fanfare-Le-Coq-Lavelanetien-100032757918495/" target="_blank" rel="noopener noreferrer" class="orchestra-link facebook">
+                            Découvrir sur Facebook
+                        </a>
                     </div>
                 </div>
 
@@ -1093,6 +1142,9 @@
                         <p class="orchestra-description">
                             Fondée en 1965 par François VERDIER, l'Entente Saint Lysienne perpétue la tradition musicale de Saint-Lys. Forte de 30 musiciens sous la direction de José PALOMERA depuis 1984, elle est capable d'assurer des concerts aux répertoires multiples et des cérémonies de haut niveau dans toute la France et en Espagne.
                         </p>
+                        <a href="https://www.ententesaintlysienne.fr/" target="_blank" rel="noopener noreferrer" class="orchestra-link">
+                            Visiter le site web
+                        </a>
                     </div>
                 </div>
 
