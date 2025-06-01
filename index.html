@@ -79,7 +79,7 @@
             border-radius: 25px;
             transition: all 0.3s ease;
             border: 2px solid transparent;
-            font-size: 0.9rem;
+            font-size: 1rem;
             white-space: nowrap;
             min-width: fit-content;
             text-align: center;
@@ -587,6 +587,43 @@
             -webkit-tap-highlight-color: rgba(79, 195, 247, 0.3);
         }
 
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c5aa0, #4fc3f7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(44, 90, 160, 0.4);
+            transition: all 0.3s ease;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            -webkit-tap-highlight-color: rgba(79, 195, 247, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover, .back-to-top:active {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(79, 195, 247, 0.6);
+            background: linear-gradient(135deg, #1a365d, #2c5aa0);
+        }
+
         /* Amélioration de la lisibilité sur petit écran */
         @media (max-width: 480px) {
             nav {
@@ -599,7 +636,7 @@
             
             nav a {
                 padding: 0.7rem 1rem;
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 border-radius: 20px;
                 margin: 0.2rem 0;
             }
@@ -680,7 +717,6 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="#accueil">🏠 Accueil</a></li>
             <li><a href="#programme">📅 Programme</a></li>
             <li><a href="#orchestres">🎼 Orchestres</a></li>
             <li><a href="#infos">ℹ️ Infos</a></li>
@@ -1065,6 +1101,11 @@
         </div>
     </section>
 
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        ⬆️
+    </button>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1094,6 +1135,26 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+
+            // Gestion du bouton retour en haut
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // Afficher/masquer le bouton selon le scroll
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Action du bouton retour en haut
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
 
