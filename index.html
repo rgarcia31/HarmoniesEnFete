@@ -277,6 +277,39 @@
             border: 2px solid rgba(79, 195, 247, 0.5);
             align-self: flex-start;
             line-height: 1.3;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .orchestra-name::after {
+            content: "👆";
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            opacity: 0.6;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+
+        .orchestra-name:hover, .orchestra-name:active {
+            background: linear-gradient(135deg, #4fc3f7, #2c5aa0);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
+            border-color: white;
+        }
+
+        .orchestra-name:hover::after {
+            opacity: 0;
         }
 
         .pieces {
@@ -531,6 +564,16 @@
             font-size: 1rem !important;
             text-align: center;
             padding: 0.8rem !important;
+            cursor: default;
+        }
+
+        .grand-finale .orchestra-name::after {
+            display: none;
+        }
+
+        .grand-finale .orchestra-name:hover {
+            transform: none !important;
+            box-shadow: none !important;
         }
 
         .grand-finale-note {
@@ -747,7 +790,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">14h00</span>
-                        <span class="orchestra-name">Union Musicale Auterivaine</span>
+                        <a href="#union-musicale-auterivaine" data-target="union-musicale-auterivaine" class="orchestra-name">Union Musicale Auterivaine</a>
                     </div>
                     <div class="pieces">
                         <div class="piece">
@@ -772,7 +815,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">14h35</span>
-                        <span class="orchestra-name">Harmonie Municipale de Blagnac</span>
+                        <a href="#harmonie-blagnac" data-target="harmonie-blagnac" class="orchestra-name">Harmonie Municipale de Blagnac</a>
                     </div>
                     <div class="program-pending">
                         Programme en cours de finalisation...
@@ -782,7 +825,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">15h05</span>
-                        <span class="orchestra-name">Orchestre d'Harmonie du Frontonnais</span>
+                        <a href="#orchestre-frontonnais" data-target="orchestre-frontonnais" class="orchestra-name">Orchestre d'Harmonie du Frontonnais</a>
                     </div>
                     <div class="pieces">
                         <div class="piece">
@@ -815,7 +858,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">15h30</span>
-                        <span class="orchestra-name">La Gerbe d'Or</span>
+                        <a href="#la-gerbe-dor" data-target="la-gerbe-dor" class="orchestra-name">La Gerbe d'Or</a>
                     </div>
                     <div class="pieces">
                         <div class="piece">
@@ -868,7 +911,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">16h00</span>
-                        <span class="orchestra-name">Orchestre d'Harmonie Le Vernet-Venerque</span>
+                        <a href="#orchestre-vernet" data-target="orchestre-vernet" class="orchestra-name">Orchestre d'Harmonie Le Vernet-Venerque</a>
                     </div>
                     <div class="pieces">
                         <div class="piece">
@@ -893,7 +936,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">16h30</span>
-                        <span class="orchestra-name">Le Coq Lavelanetien</span>
+                        <a href="#coq-lavelanetien" data-target="coq-lavelanetien" class="orchestra-name">Le Coq Lavelanetien</a>
                     </div>
                     <div class="program-pending">
                         Programme en cours de finalisation...
@@ -903,7 +946,7 @@
                 <div class="time-slot">
                     <div class="time-header">
                         <span class="time">17h00</span>
-                        <span class="orchestra-name">Entente Saint Lysienne</span>
+                        <a href="#entente-saint-lys" data-target="entente-saint-lys" class="orchestra-name">Entente Saint Lysienne</a>
                     </div>
                     <div class="pieces">
                         <div class="piece">
@@ -962,60 +1005,8 @@
             <h2 class="section-title">Les <span class="colorful-text">Orchestres</span> Participants</h2>
             <div class="orchestras-grid">
                 
-                <!-- Orchestre d'Harmonie Le Vernet-Venerque -->
-                <div class="orchestra-card">
-                    <div class="orchestra-image">
-                        <img src="/img/vernet.jpg" alt="Orchestre d'Harmonie Le Vernet-Venerque" loading="lazy">
-                    </div>
-                    <div class="orchestra-content">
-                        <h3 class="orchestra-title">Orchestre d'Harmonie Le Vernet-Venerque</h3>
-                        <p class="orchestra-description">
-                            Depuis plus de 35 ans, les villages du Vernet et de Venerque vibraient au rythme de leur propre Orchestre d'Harmonie. Née le 2 septembre 2016, l'association réunit aujourd'hui une cinquantaine de musiciens amateurs et passionnés qui se retrouvent sous la baguette de Cyril Devaux dans une ambiance très chaleureuse.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- La Gerbe d'Or -->
-                <div class="orchestra-card">
-                    <div class="orchestra-image">
-                        <img src="/img/gerbe-dor.jpg" alt="La Gerbe d'Or" loading="lazy">
-                    </div>
-                    <div class="orchestra-content">
-                        <h3 class="orchestra-title">La Gerbe d'Or</h3>
-                        <p class="orchestra-description">
-                            Fondée en 1934, la Gerbe d'Or vient de fêter ses 90 printemps. Sous la présidence de Patrice Rouzeau depuis 1991 et la direction musicale de Johan LAVA, cette formation unique préserve l'authenticité du style "Majorette" avec la cohésion entre musique et majorettes pour offrir un spectacle de qualité exceptionnel.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Orchestre d'Harmonie du Frontonnais -->
-                <div class="orchestra-card">
-                    <div class="orchestra-image">
-                        <img src="/img/frontonnais.jpg" alt="Orchestre d'Harmonie du Frontonnais" loading="lazy">
-                    </div>
-                    <div class="orchestra-content">
-                        <h3 class="orchestra-title">Orchestre d'Harmonie du Frontonnais</h3>
-                        <p class="orchestra-description">
-                            La plus vieille formation musicale de Haute-Garonne fête ses 150 ans cette année ! Regroupant une quarantaine de musiciens passionnés, elle offre un répertoire varié sous la direction de Bernard GAUTHERIN depuis plus de 30 ans. Un acteur culturel majeur du Frontonnais tourné vers la création et l'innovation musicale.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Harmonie Municipale de Blagnac -->
-                <div class="orchestra-card">
-                    <div class="orchestra-image">
-                        <img src="/img/blagnac.jpg" alt="Harmonie Municipale de Blagnac" loading="lazy">
-                    </div>
-                    <div class="orchestra-content">
-                        <h3 class="orchestra-title">Harmonie Municipale de Blagnac</h3>
-                        <p class="orchestra-description">
-                            Formation associative de 40 musiciens pratiquant des instruments à vent et percussion. Son répertoire varié lui permet de proposer des prestations attractives et adaptables à chaque événement, faisant d'elle un partenaire musical incontournable de la région.
-                        </p>
-                    </div>
-                </div>
-
                 <!-- Union Musicale Auterivaine -->
-                <div class="orchestra-card">
+                <div class="orchestra-card" id="union-musicale-auterivaine">
                     <div class="orchestra-image">
                         <img src="/img/auterivaine.jpg" alt="Union Musicale Auterivaine" loading="lazy">
                     </div>
@@ -1027,21 +1018,60 @@
                     </div>
                 </div>
 
-                <!-- Entente Saint Lysienne -->
-                <div class="orchestra-card">
+                <!-- Harmonie Municipale de Blagnac -->
+                <div class="orchestra-card" id="harmonie-blagnac">
                     <div class="orchestra-image">
-                        <img src="/img/saint-lys.jpg" alt="Entente Saint Lysienne" loading="lazy">
+                        <img src="/img/blagnac.jpg" alt="Harmonie Municipale de Blagnac" loading="lazy">
                     </div>
                     <div class="orchestra-content">
-                        <h3 class="orchestra-title">Entente Saint Lysienne</h3>
+                        <h3 class="orchestra-title">Harmonie Municipale de Blagnac</h3>
                         <p class="orchestra-description">
-                            Fondée en 1965 par François VERDIER, l'Entente Saint Lysienne perpétue la tradition musicale de Saint-Lys. Forte de 30 musiciens sous la direction de José PALOMERA depuis 1984, elle est capable d'assurer des concerts aux répertoires multiples et des cérémonies de haut niveau dans toute la France et en Espagne.
+                            Formation associative de 40 musiciens pratiquant des instruments à vent et percussion. Son répertoire varié lui permet de proposer des prestations attractives et adaptables à chaque événement, faisant d'elle un partenaire musical incontournable de la région.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Orchestre d'Harmonie du Frontonnais -->
+                <div class="orchestra-card" id="orchestre-frontonnais">
+                    <div class="orchestra-image">
+                        <img src="/img/frontonnais.jpg" alt="Orchestre d'Harmonie du Frontonnais" loading="lazy">
+                    </div>
+                    <div class="orchestra-content">
+                        <h3 class="orchestra-title">Orchestre d'Harmonie du Frontonnais</h3>
+                        <p class="orchestra-description">
+                            La plus vieille formation musicale de Haute-Garonne fête ses 150 ans cette année ! Regroupant une quarantaine de musiciens passionnés, elle offre un répertoire varié sous la direction de Bernard GAUTHERIN depuis plus de 30 ans. Un acteur culturel majeur du Frontonnais tourné vers la création et l'innovation musicale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- La Gerbe d'Or -->
+                <div class="orchestra-card" id="la-gerbe-dor">
+                    <div class="orchestra-image">
+                        <img src="/img/gerbe-dor.jpg" alt="La Gerbe d'Or" loading="lazy">
+                    </div>
+                    <div class="orchestra-content">
+                        <h3 class="orchestra-title">La Gerbe d'Or</h3>
+                        <p class="orchestra-description">
+                            Fondée en 1934, la Gerbe d'Or vient de fêter ses 90 printemps. Sous la présidence de Patrice Rouzeau depuis 1991 et la direction musicale de Johan LAVA, cette formation unique préserve l'authenticité du style "Majorette" avec la cohésion entre musique et majorettes pour offrir un spectacle de qualité exceptionnel.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Orchestre d'Harmonie Le Vernet-Venerque -->
+                <div class="orchestra-card" id="orchestre-vernet">
+                    <div class="orchestra-image">
+                        <img src="/img/vernet.jpg" alt="Orchestre d'Harmonie Le Vernet-Venerque" loading="lazy">
+                    </div>
+                    <div class="orchestra-content">
+                        <h3 class="orchestra-title">Orchestre d'Harmonie Le Vernet-Venerque</h3>
+                        <p class="orchestra-description">
+                            Depuis plus de 35 ans, les villages du Vernet et de Venerque vibraient au rythme de leur propre Orchestre d'Harmonie. Née le 2 septembre 2016, l'association réunit aujourd'hui une cinquantaine de musiciens amateurs et passionnés qui se retrouvent sous la baguette de Cyril Devaux dans une ambiance très chaleureuse.
                         </p>
                     </div>
                 </div>
 
                 <!-- Le Coq Lavelanetien -->
-                <div class="orchestra-card">
+                <div class="orchestra-card" id="coq-lavelanetien">
                     <div class="orchestra-image">
                         <img src="/img/coq-lavelanetien.jpg" alt="Le Coq Lavelanetien" loading="lazy">
                     </div>
@@ -1049,6 +1079,19 @@
                         <h3 class="orchestra-title">Le Coq Lavelanetien</h3>
                         <p class="orchestra-description">
                             [Texte de présentation à compléter - Formation musicale de la région de Lavelanet, reconnue pour son dynamisme et sa passion pour la musique d'harmonie. Cette formation apporte sa contribution unique au festival avec un répertoire varié alliant tradition et modernité.]
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Entente Saint Lysienne -->
+                <div class="orchestra-card" id="entente-saint-lys">
+                    <div class="orchestra-image">
+                        <img src="/img/saint-lys.jpg" alt="Entente Saint Lysienne" loading="lazy">
+                    </div>
+                    <div class="orchestra-content">
+                        <h3 class="orchestra-title">Entente Saint Lysienne</h3>
+                        <p class="orchestra-description">
+                            Fondée en 1965 par François VERDIER, l'Entente Saint Lysienne perpétue la tradition musicale de Saint-Lys. Forte de 30 musiciens sous la direction de José PALOMERA depuis 1984, elle est capable d'assurer des concerts aux répertoires multiples et des cérémonies de haut niveau dans toute la France et en Espagne.
                         </p>
                     </div>
                 </div>
@@ -1115,20 +1158,83 @@
     </footer>
 
     <script>
-        // Navigation smooth scroll - Version mobile optimisée
+        // Navigation simplifiée - Version qui fonctionne
         document.addEventListener('DOMContentLoaded', function() {
-            // Pour tous les liens qui commencent par #
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            
+            // Fonction pour naviguer vers un orchestre
+            function navigateToOrchestra(orchestraId) {
+                console.log('Navigation vers:', orchestraId);
+                
+                const targetElement = document.getElementById(orchestraId);
+                console.log('Élément trouvé:', targetElement);
+                
+                if (targetElement) {
+                    const rect = targetElement.getBoundingClientRect();
+                    const navHeight = 100; // Hauteur fixe pour être sûr
+                    const currentScroll = window.pageYOffset;
+                    const targetPosition = currentScroll + rect.top - navHeight;
+                    
+                    console.log('Position actuelle:', currentScroll);
+                    console.log('Position cible:', targetPosition);
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Effet visuel
+                    setTimeout(() => {
+                        targetElement.style.transform = 'scale(1.05)';
+                        targetElement.style.boxShadow = '0 25px 50px rgba(79, 195, 247, 0.6)';
+                        targetElement.style.transition = 'all 0.5s ease';
+                        
+                        setTimeout(() => {
+                            targetElement.style.transform = '';
+                            targetElement.style.boxShadow = '';
+                        }, 2000);
+                    }, 100);
+                }
+            }
+            
+            // Gestionnaires spécifiques pour chaque orchestre
+            const orchestraLinks = {
+                'union-musicale-auterivaine': 'union-musicale-auterivaine',
+                'harmonie-blagnac': 'harmonie-blagnac', 
+                'orchestre-frontonnais': 'orchestre-frontonnais',
+                'la-gerbe-dor': 'la-gerbe-dor',
+                'orchestre-vernet': 'orchestre-vernet',
+                'coq-lavelanetien': 'coq-lavelanetien',
+                'entente-saint-lys': 'entente-saint-lys'
+            };
+            
+            // Ajouter les gestionnaires d'événements
+            Object.keys(orchestraLinks).forEach(linkId => {
+                const linkElement = document.querySelector(`a[href="#${linkId}"]`);
+                if (linkElement) {
+                    linkElement.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.log('Clic détecté sur:', linkId);
+                        navigateToOrchestra(orchestraLinks[linkId]);
+                        return false;
+                    });
+                    console.log('Gestionnaire ajouté pour:', linkId);
+                }
+            });
+
+            // Navigation du menu principal (Programme, Orchestres, Infos)
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
+                    const href = this.getAttribute('href');
+                    const targetSection = document.querySelector(href);
                     
                     if (targetSection) {
-                        // Calculer la position en tenant compte de la navbar fixe
-                        const navHeight = document.querySelector('nav').offsetHeight;
-                        const targetPosition = targetSection.offsetTop - navHeight - 10;
+                        const navHeight = 100;
+                        const rect = targetSection.getBoundingClientRect();
+                        const currentScroll = window.pageYOffset;
+                        const targetPosition = currentScroll + rect.top - navHeight;
                         
                         window.scrollTo({
                             top: targetPosition,
@@ -1141,7 +1247,6 @@
             // Gestion du bouton retour en haut
             const backToTopButton = document.getElementById('backToTop');
             
-            // Afficher/masquer le bouton selon le scroll
             window.addEventListener('scroll', function() {
                 if (window.pageYOffset > 300) {
                     backToTopButton.classList.add('visible');
@@ -1150,7 +1255,6 @@
                 }
             });
             
-            // Action du bouton retour en haut
             backToTopButton.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
@@ -1158,7 +1262,7 @@
                 });
             });
 
-            // Amélioration du feedback tactile
+            // Feedback tactile
             document.querySelectorAll('.time-slot, .orchestra-card, .info-card, .piece').forEach(element => {
                 element.addEventListener('touchstart', function() {
                     this.style.transform = 'scale(0.98)';
@@ -1170,6 +1274,8 @@
                     }, 150);
                 });
             });
+            
+            console.log('JavaScript initialisé');
         });
 
         // Animation au scroll - Version allégée pour mobile
