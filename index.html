@@ -97,11 +97,57 @@
             z-index: 10;
         }
 
-        /* Container principal */
+        /* Container principal - Limité sur desktop */
         .container {
             max-width: 100%;
             margin: 0 auto;
             padding: 0 1rem;
+        }
+
+        /* Limitation de largeur sur desktop */
+        @media (min-width: 768px) {
+            body {
+                max-width: 480px;
+                margin: 0 auto;
+                box-shadow: 0 0 30px rgba(44, 90, 160, 0.2);
+            }
+            
+            .container {
+                max-width: 480px;
+                padding: 0 1rem;
+            }
+            
+            /* Navigation adaptée pour la largeur limitée */
+            nav {
+                max-width: 480px;
+                margin: 0 auto;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Bouton retour en haut repositionné */
+            .back-to-top {
+                right: calc(50% - 220px);
+            }
+        }
+
+        /* Pour les très grands écrans */
+        @media (min-width: 1200px) {
+            body {
+                max-width: 520px;
+            }
+            
+            .container {
+                max-width: 520px;
+            }
+            
+            nav {
+                max-width: 520px;
+            }
+            
+            .back-to-top {
+                right: calc(50% - 240px);
+            }
         }
 
         /* Section générique */
